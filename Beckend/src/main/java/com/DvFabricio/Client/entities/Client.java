@@ -1,6 +1,6 @@
 package com.DvFabricio.Client.entities;
 
-import java.io.Serializable;
+import java.io.Serializable; 
 import java.time.Instant;
 
 import javax.persistence.Column;
