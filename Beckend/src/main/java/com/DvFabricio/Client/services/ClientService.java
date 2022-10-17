@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.DvFabricio.Client.dto.ClientDTO;
 import com.DvFabricio.Client.entities.Client;
 import com.DvFabricio.Client.repositories.ClientRepository;
-import com.DvFabricio.Client.services.exceptions.EntityNotFoundException;
+import com.DvFabricio.Client.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class ClientService {
@@ -46,6 +48,23 @@ public class ClientService {
 		entity.setChildren(dto.getChildren());
 		entity = repository.save(entity);
 		return new ClientDTO(entity);
+		
+	}
+
+	@Transactional
+	public ClientDTO update(Long id,ClientDTO dto) {
+		try {
+		Client entity = repository.getOne(id);
+		entity.setName(dto.getName());
+		entity.setCpf(dto.getCpf());
+		entity.setIncome(dto.getIncome());
+		entity.setChildren(dto.getChildren());
+		entity = repository.save(entity);
+		return new ClientDTO(entity);
+		}
+		catch(EntityNotFoundException e) {
+			throw new ResourceNotFoundException("ID not found " + id);
+		}
 		
 	}
 }
