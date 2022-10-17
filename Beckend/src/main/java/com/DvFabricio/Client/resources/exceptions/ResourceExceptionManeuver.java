@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import com.DvFabricio.Client.services.exceptions.DataBaseException;
 import com.DvFabricio.Client.services.exceptions.ResourceNotFoundException;
 
 @ControllerAdvice
@@ -16,13 +17,25 @@ public class ResourceExceptionManeuver {
 	
 	@ExceptionHandler(ResourceNotFoundException.class)
 	public ResponseEntity<StandardError>EntityNotFoundOut(ResourceNotFoundException e,HttpServletRequest request){
-       StandardError err = new StandardError();
+		HttpStatus status = HttpStatus.NOT_FOUND;
+		StandardError err = new StandardError();
 	   err.setTimestamp(Instant.now());
-	   err.setStatus(HttpStatus.NOT_FOUND.value());
-	   err.setError("Resourser not found");
+	   err.setStatus(status.value());
+	   err.setError("Resourse not found");
 	   err.setMessage("Entity not found out");
 	   err.setPath(request.getRequestURI());
-	   return ResponseEntity.status(HttpStatus.NOT_FOUND).body(err);
+	   return ResponseEntity.status(status).body(err);
+	}
 	
+	@ExceptionHandler(DataBaseException.class)
+	public ResponseEntity<StandardError>database(DataBaseException e,HttpServletRequest request){
+		HttpStatus status = HttpStatus.BAD_REQUEST;
+	   StandardError err = new StandardError();
+	   err.setTimestamp(Instant.now());
+	   err.setStatus(status.value());
+	   err.setError("Database exception");
+	   err.setMessage("Entity not found out");
+	   err.setPath(request.getRequestURI());
+	   return ResponseEntity.status(status).body(err);
  }
 }
