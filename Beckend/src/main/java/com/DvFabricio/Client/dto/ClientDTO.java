@@ -1,28 +1,39 @@
 package com.DvFabricio.Client.dto;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.Instant;
+
 
 import com.DvFabricio.Client.entities.Client;
 
 public class ClientDTO implements Serializable {
 	private static final long serialVersionUID = 1L;  
 
+	BigDecimal total = new BigDecimal("500.000");
+	Instant now = Instant.now();
+
 	private long id;
 	private String name;
-	private String cpf;
-	private Double income;
-	private Integer children;
+	private Double cpf;
+	private BigDecimal income;
+	private Instant birthDate;
+	private Double children;
+	
+	
 	
 	public ClientDTO() {
 	}
 
-	public ClientDTO(long id, String name, String cpf, Double income, Integer children) {
+	public ClientDTO(long id, String name, Double cpf, BigDecimal income, Double children, Instant birthDate) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.cpf = cpf;
+		this.birthDate = birthDate;
+	    this.cpf = cpf;
 		this.income = income;
 		this.children = children;
+		
 	}
 
 	public ClientDTO(Client entity) {
@@ -30,7 +41,9 @@ public class ClientDTO implements Serializable {
 		this.name = entity.getName();
 		this.cpf = entity.getCpf();
 		this.income = entity.getIncome();
+		this.birthDate = entity.getBirthDate();
 		this.children = entity.getChildren();
+		
 	}
 	
 	public long getId() {
@@ -49,28 +62,38 @@ public class ClientDTO implements Serializable {
 		this.name = name;
 	}
 
-	public String getCpf() {
+	public Double getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(String cpf) {
+	public void setCpf(Double cpf) {
 		this.cpf = cpf;
 	}
 
-	public Double getIncome() {
+	public BigDecimal getIncome() {
 		return income;
 	}
 
-	public void setIncome(Double income) {
+	public void setIncome(BigDecimal income) {
 		this.income = income;
 	}
+	
+	public Instant getBirthDate() {
+		return birthDate;
+	}
 
-	public Integer getChildren() {
+	public void setBirthDate(Instant birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public Double getChildren() {
 		return children;
 	}
 
-	public void setChildren(Integer children) {
+	public void setChildren(Double children) {
 		this.children = children;
 	}
+
+	
 	
 }
