@@ -25,13 +25,13 @@ public class ClientDTO implements Serializable {
 	public ClientDTO() {
 	}
 
-	public ClientDTO(long id, String name, Double cpf, BigDecimal income, Double children, Instant birthDate) {
+	public ClientDTO(long id, String name, Double cpf, BigDecimal income, Double children, Instant birth_date) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.birthDate = birthDate;
 	    this.cpf = cpf;
 		this.income = income;
+		this.birthDate = birth_date;
 		this.children = children;
 		
 	}
@@ -45,7 +45,7 @@ public class ClientDTO implements Serializable {
 		this.children = entity.getChildren();
 		
 	}
-	
+
 	public long getId() {
 		return id;
 	}
@@ -77,7 +77,7 @@ public class ClientDTO implements Serializable {
 	public void setIncome(BigDecimal income) {
 		this.income = income;
 	}
-	
+
 	public Instant getBirthDate() {
 		return birthDate;
 	}
@@ -94,6 +94,13 @@ public class ClientDTO implements Serializable {
 		this.children = children;
 	}
 
+	public Instant getBirth_date() {
+		return birthDate;
+	}
+
+	public void setBirth_date(Instant birth_date) {
+		this.birthDate = birth_date;
+	}
 	
 	
 }

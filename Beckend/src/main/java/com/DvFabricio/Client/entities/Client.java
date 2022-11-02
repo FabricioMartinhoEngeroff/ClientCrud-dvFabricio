@@ -26,10 +26,9 @@ public class Client implements Serializable {
 	private long id;
 	private String name;
 	private Double cpf;
-	private Double children;
-	private Instant birthDate;
 	private BigDecimal income;
-	
+	private Instant birthDate;
+	private Double children;
 
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant createdAt;
@@ -39,7 +38,7 @@ public class Client implements Serializable {
 	
 	public Client() {
 	}
-	
+
 	public long getId() {
 		return id;
 	}
@@ -64,11 +63,12 @@ public class Client implements Serializable {
 		this.cpf = cpf;
 	}
 
-	public BigDecimal getIncome() {
-		return income;
+	public Double getChildren() {
+		return children;
 	}
-	public void setIncome(BigDecimal income) {
-		this.income = income;
+
+	public void setChildren(Double children) {
+		this.children = children;
 	}
 
 	public Instant getBirthDate() {
@@ -78,16 +78,20 @@ public class Client implements Serializable {
 	public void setBirthDate(Instant birthDate) {
 		this.birthDate = birthDate;
 	}
+
+	public BigDecimal getIncome() {
+		return income;
+	}
 	
-	public Double getChildren() {
-		return children;
+	public void setIncome(BigDecimal income) {
+		this.income = income;
 	}
 
-	public void setChildren(Double children) {
-		this.children = children;
+	public void setCreatedAt(Instant createdAt) {
+		this.createdAt = createdAt;
 	}
 
-	public Instant getCreatedAt() {
+	public Instant getCreatedAt() { 
 		return createdAt;
 	}
 
