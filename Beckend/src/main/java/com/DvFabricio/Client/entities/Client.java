@@ -18,8 +18,8 @@ import javax.persistence.Table;
 public class Client implements Serializable {
 	private static final long serialVersionUID = 1L; 
 	
-	BigDecimal total = new BigDecimal("500.000"); 
-	Instant now = Instant.now();
+	BigDecimal total = new BigDecimal("500.000");
+	Instant dateNsc = Instant.now();
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

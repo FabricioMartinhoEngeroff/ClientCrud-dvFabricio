@@ -11,7 +11,7 @@ public class ClientDTO implements Serializable {
 	private static final long serialVersionUID = 1L;  
 
 	BigDecimal total = new BigDecimal("500.000");
-	Instant now = Instant.now();
+	Instant dateNsc = Instant.now();
 
 	private long id;
 	private String name;
