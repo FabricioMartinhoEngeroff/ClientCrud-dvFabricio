@@ -1,1 +1,1 @@
-INSERT INTO tb_clients (name, cpf, income, birth_date, children) VALUES ('Maria',345.456.786-00, 300.000, TIMESTAMP WITH TIME ZONE'2020-07-13T20:50:07.12345Z', 3, NOW());
+INSERT INTO tb_clients (name, cpf, children, birth_date, income) VALUES ('Maria', '345.456.786-00', 3, TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', 3000.0);

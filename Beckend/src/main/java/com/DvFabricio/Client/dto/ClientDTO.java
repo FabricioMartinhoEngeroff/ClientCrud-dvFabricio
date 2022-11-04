@@ -1,31 +1,29 @@
 package com.DvFabricio.Client.dto;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.time.Instant;
-
 
 import com.DvFabricio.Client.entities.Client;
 
 public class ClientDTO implements Serializable {
 	private static final long serialVersionUID = 1L;  
 
-	BigDecimal total = new BigDecimal("500.000");
-	Instant dateNsc = Instant.now();
+	//BigDecimal total = new BigDecimal("500.000");
+	//Instant now = Instant.now();
 
-	private long id;
+	private Long id;
 	private String name;
-	private Double cpf;
-	private BigDecimal income;
+	private String cpf;
+	private Double income;
 	private Instant birthDate;
-	private Double children;
+	private Integer children;
 	
 	
 	
 	public ClientDTO() {
 	}
 
-	public ClientDTO(long id, String name, Double cpf, BigDecimal income, Double children, Instant birth_date) {
+	public ClientDTO(Long id, String name, String cpf, Double income, Integer children, Instant birth_date) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -46,11 +44,11 @@ public class ClientDTO implements Serializable {
 		
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -62,19 +60,19 @@ public class ClientDTO implements Serializable {
 		this.name = name;
 	}
 
-	public Double getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(Double cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
-	public BigDecimal getIncome() {
+	public Double getIncome() {
 		return income;
 	}
 
-	public void setIncome(BigDecimal income) {
+	public void setIncome(Double income) {
 		this.income = income;
 	}
 
@@ -86,11 +84,11 @@ public class ClientDTO implements Serializable {
 		this.birthDate = birthDate;
 	}
 
-	public Double getChildren() {
+	public Integer getChildren() {
 		return children;
 	}
 
-	public void setChildren(Double children) {
+	public void setChildren(Integer children) {
 		this.children = children;
 	}
 
