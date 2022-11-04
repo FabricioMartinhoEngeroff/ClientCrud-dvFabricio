@@ -1,7 +1,6 @@
 package com.DvFabricio.Client.entities;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.time.Instant;
 
 import javax.persistence.Column;
@@ -18,17 +17,17 @@ import javax.persistence.Table;
 public class Client implements Serializable {
 	private static final long serialVersionUID = 1L; 
 	
-	BigDecimal total = new BigDecimal("500.000");
-	Instant dateNsc = Instant.now();
+	//BigDecimal total = new BigDecimal("500.000"); 
+	//Instant now = Instant.now();
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	private String name;
-	private Double cpf;
-	private BigDecimal income;
+	private String cpf;
+	private Double income;
 	private Instant birthDate;
-	private Double children;
+	private Integer children;
 
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant createdAt;
@@ -39,11 +38,11 @@ public class Client implements Serializable {
 	public Client() {
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -55,19 +54,19 @@ public class Client implements Serializable {
 		this.name = name;
 	}
 
-	public Double getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(Double cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
-	public Double getChildren() {
+	public Integer getChildren() {
 		return children;
 	}
 
-	public void setChildren(Double children) {
+	public void setChildren(Integer children) {
 		this.children = children;
 	}
 
@@ -79,11 +78,11 @@ public class Client implements Serializable {
 		this.birthDate = birthDate;
 	}
 
-	public BigDecimal getIncome() {
+	public Double getIncome() {
 		return income;
 	}
 	
-	public void setIncome(BigDecimal income) {
+	public void setIncome(Double income) {
 		this.income = income;
 	}
 
